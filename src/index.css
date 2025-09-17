@@ -183,10 +183,7 @@
     font-family: var(--font-display, serif);
   }
 
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
+  /* Smooth scrolling removed to prevent scroll animation on route change */
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
