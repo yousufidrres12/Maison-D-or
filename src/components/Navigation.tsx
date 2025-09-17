@@ -83,7 +83,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground hover:text-accent transition-colors"
+            className={`md:hidden p-2 ${navTextColor} hover:text-accent transition-colors`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -93,17 +93,28 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-6 pb-6 border-t border-border animate-fade-in">
-            <div className="flex flex-col space-y-4 pt-6">
+          <>
+            {/* Overlay */}
+            <div className="fixed inset-0 bg-black/60 z-40" onClick={() => setIsMobileMenuOpen(false)} />
+            {/* Mobile Menu Card */}
+            <div className="fixed top-4 left-1/2 -translate-x-1/2 w-[90vw] max-w-sm bg-white rounded-2xl shadow-2xl z-50 p-6 animate-slide-down flex flex-col space-y-6">
+              <button
+                className="absolute top-3 right-3 text-gray-400 hover:text-accent transition-colors text-2xl"
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close menu"
+                type="button"
+              >
+                <X size={28} />
+              </button>
               {navItems.map((item) => (
                 <NavLink
                   key={item.name}
                   to={item.path}
                   className={({ isActive }) =>
-                    `font-medium py-2 px-4 rounded-lg transition-all duration-300 ${
+                    `block text-lg font-semibold px-4 py-3 rounded-xl transition-all duration-300 text-center ${
                       isActive
-                        ? "bg-accent text-accent-foreground"
-                        : "text-foreground hover:bg-muted hover:text-accent"
+                        ? "bg-accent text-accent-foreground shadow"
+                        : "text-[#14213d] hover:bg-muted hover:text-accent"
                     }`
                   }
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -113,12 +124,19 @@ const Navigation = () => {
                 </NavLink>
               ))}
               <NavLink to="/reservations" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="copper" className="w-full mt-4 tracking-wide">
+                <Button variant="copper" className="w-full mt-2 tracking-wide text-lg py-3 rounded-xl">
                   Reserve Table
                 </Button>
               </NavLink>
             </div>
-          </div>
+            <style>{`
+              @keyframes slide-down {
+                0% { opacity: 0; transform: translate(-50%, -30px); }
+                100% { opacity: 1; transform: translate(-50%, 0); }
+              }
+              .animate-slide-down { animation: slide-down 0.3s cubic-bezier(.4,0,.2,1) both; }
+            `}</style>
+          </>
         )}
       </div>
     </nav>
