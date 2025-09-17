@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4 flex flex-col items-start">
-            <img src={"/src/assets/logo.png"} alt="Maison D'or Logo" className="h-32 w-auto mb-6" />
+            <img src={"/logo.png"} alt="Maison D'or Logo" className="h-32 w-auto mb-6" />
             <h3 className="text-2xl font-display font-bold text-accent">Maison D'or</h3>
             <p className="text-sm leading-relaxed">
               Where culinary artistry meets elegant sophistication. Experience the finest in luxury dining.
