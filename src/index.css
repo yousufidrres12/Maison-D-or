@@ -1,0 +1,361 @@
+html, body {
+  scroll-behavior: auto !important;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luxury Restaurant Design System - Maison D'or */
+
+@layer base {
+  :root {
+    /* Base colors - Deeper, more sophisticated palette */
+    --background: 220 8% 97%;
+    --foreground: 220 15% 12%;
+
+    /* Card system - Enhanced depth */
+    --card: 220 12% 95%;
+    --card-foreground: 220 15% 12%;
+
+    /* Popover system */
+    --popover: 220 12% 95%;
+    --popover-foreground: 220 15% 12%;
+
+    /* Primary - Deep Charcoal with Blue undertones */
+    --primary: 220 25% 18%;
+    --primary-foreground: 220 8% 97%;
+    --primary-hover: 220 30% 22%;
+
+    /* Secondary - Rich Midnight */
+    --secondary: 225 15% 28%;
+    --secondary-foreground: 220 8% 95%;
+
+    /* Muted tones - Sophisticated grays */
+    --muted: 220 8% 88%;
+    --muted-foreground: 220 12% 45%;
+
+    /* Accent - Refined Copper */
+    --accent: 25 55% 48%;
+    --accent-foreground: 220 8% 97%;
+    --accent-muted: 25 35% 85%;
+
+    /* Sophisticated gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(220 30% 22%)
+    );
+    --gradient-copper: linear-gradient(
+      135deg,
+      hsl(25 55% 48%),
+      hsl(30 45% 42%)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      hsl(var(--background)),
+      hsl(220 8% 93%)
+    );
+    --gradient-dramatic: linear-gradient(
+      180deg,
+      hsl(220 25% 8%) 0%,
+      hsl(220 20% 15%) 100%
+    );
+
+    /* Artistic shadows with depth */
+    --shadow-luxury: 0 20px 60px -12px hsl(220 25% 18% / 0.25);
+    --shadow-card: 0 8px 32px -8px hsl(220 15% 12% / 0.12);
+    --shadow-accent: 0 12px 40px -8px hsl(var(--accent) / 0.25);
+    --shadow-dramatic: 0 25px 80px -15px hsl(220 25% 8% / 0.4);
+
+    /* Destructive */
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 220 8% 97%;
+
+    /* Refined borders and inputs */
+    --border: 220 12% 82%;
+    --input: 220 8% 85%;
+    --ring: 220 25% 18%;
+
+    /* Enhanced border radius */
+    --radius: 1rem;
+
+    /* Artistic transitions */
+    --transition-luxury: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-dramatic: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+
+    /* Enhanced typography */
+    --font-display: "Cormorant Garamond", "Times New Roman", serif;
+    --font-body: "Inter", "Helvetica Neue", sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dramatic dark theme */
+    --background: 220 25% 8%;
+    --foreground: 220 8% 92%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 220 8% 92%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 220 8% 92%;
+
+    --primary: 220 8% 92%;
+    --primary-foreground: 220 25% 8%;
+    --primary-hover: 220 12% 88%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 220 8% 88%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 8% 55%;
+
+    --accent: 25 65% 55%;
+    --accent-foreground: 220 25% 8%;
+    --accent-muted: 25 35% 25%;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(220 8% 92%),
+      hsl(220 12% 88%)
+    );
+    --gradient-copper: linear-gradient(
+      135deg,
+      hsl(25 65% 55%),
+      hsl(30 55% 48%)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      hsl(var(--background)),
+      hsl(220 20% 12%)
+    );
+    --gradient-dramatic: linear-gradient(
+      180deg,
+      hsl(220 25% 8%) 0%,
+      hsl(220 20% 15%) 100%
+    );
+
+    --shadow-luxury: 0 20px 60px -12px hsl(0 0% 0% / 0.4);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.25);
+    --shadow-accent: 0 12px 40px -8px hsl(var(--accent) / 0.35);
+    --shadow-dramatic: 0 25px 80px -15px hsl(0 0% 0% / 0.6);
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 220 8% 92%;
+
+    --border: 220 15% 25%;
+    --input: 220 20% 18%;
+    --ring: 25 65% 55%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body, inherit);
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display, serif);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--primary-hover));
+  }
+}
+
+@layer components {
+  /* Enhanced animation utilities */
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 1s ease-out forwards;
+  }
+
+  .animate-scale-hover {
+    transition: var(--transition-luxury);
+  }
+
+  .animate-scale-hover:hover {
+    transform: scale(1.02) translateY(-2px);
+  }
+
+  /* Artistic hover effects */
+  .hover-lift {
+    transition: var(--transition-luxury);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-dramatic);
+  }
+
+  .hover-float {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-float:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  /* Enhanced button variants */
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .bg-gradient-copper {
+    background: var(--gradient-copper);
+  }
+  .btn-luxury {
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    font-family: var(--font-body, inherit);
+    transition: var(--transition-luxury);
+    box-shadow: var(--shadow-card);
+  }
+  .btn-luxury:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-dramatic);
+  }
+  .btn-copper {
+    background: var(--gradient-copper);
+    color: hsl(var(--accent-foreground));
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    font-family: var(--font-body, inherit);
+    transition: var(--transition-luxury);
+    box-shadow: var(--shadow-card);
+  }
+  .btn-copper:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-accent);
+  }
+
+  /* Text animations */
+  .text-reveal {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .text-reveal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: hsl(var(--accent));
+    transform: translateX(100%);
+    transition: var(--transition-dramatic);
+  }
+
+  .text-reveal:hover::after {
+    transform: translateX(0);
+  }
+
+  /* Advanced layouts */
+  .parallax-container {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .asymmetric-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+  }
+
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .content-spacing > * + * {
+    margin-top: 3rem;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
