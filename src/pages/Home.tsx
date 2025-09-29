@@ -160,7 +160,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 mt-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 mt-20">
               {[
                 {
                   icon: ChefHat,
@@ -187,15 +187,15 @@ const Home = () => {
                   accent: "bg-primary/10 text-primary"
                 }
               ].map((feature, index) => (
-                <Card key={index} className="fade-in-element hover-lift group border-0 bg-background/60 backdrop-blur-sm">
-                  <CardContent className="p-10">
-                    <div className="flex items-start space-x-6">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${feature.accent} group-hover:scale-110 transition-all duration-500`}>
-                        <feature.icon size={24} />
+                <Card key={index} className="fade-in-element hover-lift group border-0 bg-background/60 backdrop-blur-sm w-full">
+                  <CardContent className="p-5 md:p-10">
+                    <div className="flex items-start space-x-4 md:space-x-6">
+                      <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center ${feature.accent} group-hover:scale-110 transition-all duration-500 flex-shrink-0`}>
+                        <feature.icon size={20} className="md:w-6 md:h-6" />
                       </div>
-                      <div className="flex-1 space-y-4">
-                        <h3 className="text-2xl font-display font-medium">{feature.title}</h3>
-                        <p className="text-foreground leading-relaxed">{feature.description}</p>
+                      <div className="flex-1 space-y-3 md:space-y-4 min-w-0">
+                        <h3 className="text-lg md:text-2xl font-display font-medium leading-tight">{feature.title}</h3>
+                        <p className="text-sm md:text-base text-foreground leading-relaxed">{feature.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -271,7 +271,7 @@ const Home = () => {
         <div className="absolute inset-0 opacity-10">
           <div className="w-full h-full bg-repeat" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Ccircle fill=\"%23ffffff\" opacity=\"0.03\" cx=\"20\" cy=\"20\" r=\"1\"/%3E%3C/g%3E%3C/svg%3E')" }}></div>
         </div>
-        <div className="container mx-auto text-center relative">
+        <div className="container mx-auto text-center relative px-4 md:px-6">
           <div className="max-w-4xl mx-auto fade-in-element space-y-12">
             <div className="space-y-8">
               <div className="w-24 h-px bg-accent mx-auto"></div>
@@ -285,14 +285,14 @@ const Home = () => {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <NavLink to="/reservations">
-                <Button variant="copper" className="text-lg px-16 py-7 min-w-[250px]">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center pt-8 px-2">
+              <NavLink to="/reservations" className="w-full sm:w-auto">
+                <Button variant="copper" className="text-base md:text-lg px-8 md:px-16 py-6 md:py-7 w-full sm:min-w-[200px] md:min-w-[250px]">
                   Reserve Your Table
                 </Button>
               </NavLink>
-              <NavLink to="/contact">
-                <Button variant="outline" className="bg-white/10 border-white/40 text-[#14213d] hover:bg-white/20 backdrop-blur-sm text-lg px-16 py-7 min-w-[250px] font-bold shadow-lg">
+              <NavLink to="/contact" className="w-full sm:w-auto">
+                <Button variant="outline" className="bg-white/10 border-white/40 text-[#14213d] hover:bg-white/20 backdrop-blur-sm text-base md:text-lg px-8 md:px-16 py-6 md:py-7 w-full sm:min-w-[200px] md:min-w-[250px] font-bold shadow-lg">
                   Private Events
                 </Button>
               </NavLink>

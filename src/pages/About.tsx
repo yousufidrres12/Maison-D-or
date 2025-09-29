@@ -123,7 +123,7 @@ const About = () => {
               <Card key={index} className="fade-in-element hover:shadow-luxury transition-all duration-300">
                 <CardContent className="p-8 text-center">
                   <div className="w-32 h-32 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden shadow-lg">
-                    <img src={member.photo} alt={member.name} className={`object-cover w-full h-full${member.name === "James Chen" ? " object-[center_95%] translate-y-4" : ""}`} />
+                    <img src={member.photo} alt={member.name} className="object-cover object-center w-full h-full" />
                   </div>
                   <h3 className="text-xl font-display font-semibold mb-2">{member.name}</h3>
                   <div className="text-accent font-medium mb-4">{member.role}</div>

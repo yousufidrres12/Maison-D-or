@@ -139,13 +139,13 @@ const Menu = () => {
     <div className="pt-20 pb-16">
       {/* Elegant Hero Section */}
       <section className="section-padding bg-gradient-subtle">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4 md:px-0">
           <div className="text-center max-w-5xl mx-auto fade-in-element space-y-8">
             <div className="w-16 h-px bg-accent mx-auto"></div>
-            <h1 className="text-6xl md:text-7xl font-display font-light text-primary leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-display font-light text-primary leading-tight tracking-tight break-words">
               Culinary <span className="italic text-accent">Compositions</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
               Each dish represents a carefully orchestrated masterpiece, where seasonal ingredients 
               meet innovative techniques in perfect harmony. Three Michelin stars honor 
               our unwavering commitment to culinary excellence.
@@ -158,15 +158,15 @@ const Menu = () => {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
           <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-12 h-auto p-2 bg-muted rounded-xl">
+            <TabsList className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 w-full mb-12 h-auto p-1 bg-muted rounded-xl gap-2 sm:gap-0">
               {categories.map((category) => (
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="flex flex-col h-auto p-4 text-left data-[state=active]:bg-background data-[state=active]:shadow-card rounded-lg"
+                  className="flex flex-col w-full h-auto px-4 py-4 text-left data-[state=active]:bg-background data-[state=active]:shadow-card rounded-lg min-w-0"
                 >
-                  <div className="font-semibold text-sm">{category.name}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{category.description}</div>
+                  <div className="font-semibold text-base break-words leading-tight min-w-0">{category.name}</div>
+                  <div className="text-xs text-muted-foreground mt-1 break-words leading-tight min-w-0">{category.description}</div>
                 </TabsTrigger>
               ))}
             </TabsList>
